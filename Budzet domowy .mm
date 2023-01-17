@@ -1,0 +1,98 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1672824703350" ID="ID_1870543472" MODIFIED="1672824714335" TEXT="Budzet domowy ">
+<node CREATED="1672824731828" ID="ID_1655074107" MODIFIED="1672824918810" POSITION="right" TEXT="Interfejs">
+<node CREATED="1672824925003" ID="ID_700046578" MODIFIED="1672824950556" TEXT="1. Rejestracja">
+<node CREATED="1672824954737" ID="ID_1928089581" MODIFIED="1672824993952" TEXT="Podaj imi&#x119;">
+<node CREATED="1672824999190" ID="ID_34250168" MODIFIED="1672825009852" TEXT="Podaj Nazwisko">
+<node CREATED="1672825009853" ID="ID_1750828814" MODIFIED="1672825016514" TEXT="Podaj login">
+<node CREATED="1672825016514" ID="ID_1292058691" MODIFIED="1672825061787" TEXT="Podaj has&#x142;o">
+<node CREATED="1672825150684" ID="ID_1559548012" MODIFIED="1672825168265" TEXT="Sprawd&#x17a; czy taki u&#x17c;ytkownik juz istnieje">
+<node CREATED="1672825168265" ID="ID_1646349489" MODIFIED="1672825212965" TEXT="TAK &quot;Konto o takim loginie juz istnieje&quot;"/>
+<node CREATED="1672825215224" ID="ID_710246289" MODIFIED="1672825243716" TEXT="NIE &quot;Konto utworzone&quot;"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1672824965380" ID="ID_1838637205" MODIFIED="1672825575663" TEXT="2. Logowanie">
+<node CREATED="1672825069997" ID="ID_619822994" MODIFIED="1672825084929" TEXT="Podaj login">
+<node CREATED="1672825084930" ID="ID_1528510597" MODIFIED="1672825105526" TEXT="Podaj has&#x142;o">
+<node CREATED="1672825247564" ID="ID_1245112069" MODIFIED="1672825258102" TEXT="Sprawdz czy dane s&#x105; poprawne">
+<node CREATED="1672825258102" ID="ID_19562159" MODIFIED="1672825303304" TEXT="NIE &quot;Bledny login ub haslo&quot;"/>
+<node CREATED="1672825303805" ID="ID_1492323346" MODIFIED="1672825341851" TEXT="TAK Wyswietl menu dla zalogowanych uzytkownikow">
+<node CREATED="1672825341851" ID="ID_834069164" MODIFIED="1672825368183" TEXT="1. Dodaj przychod">
+<node CREATED="1672825368184" ID="ID_556058284" MODIFIED="1672825387523" TEXT="1. Z dnia dzisiejszego"/>
+<node CREATED="1672825388164" ID="ID_1373775023" MODIFIED="1672825402797" TEXT="2. Z innego dnia">
+<node CREATED="1672825402801" ID="ID_1807695326" MODIFIED="1672825571180" TEXT="Podaj date rrrr-mm-dd">
+<node CREATED="1672825437114" ID="ID_250664518" MODIFIED="1672825594598" TEXT="Sprawdz czy podana data jest poprawna (odpowiednia ilo&#x15b;c dni w miesi&#x105;cu, odpowiedni przedzial od 2000-01-01, )">
+<node CREATED="1672825542546" ID="ID_389662997" MODIFIED="1672825643157" TEXT="Podaj czego dotyczy przych&#xf3;d ">
+<node CREATED="1672825643157" ID="ID_315333514" MODIFIED="1672825655312" TEXT="Podaj wysokosc przychodu">
+<node CREATED="1672825655316" ID="ID_1944361306" MODIFIED="1672825682743" TEXT="Zmien przecinek na kropke"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1672825690125" ID="ID_1014546617" MODIFIED="1672825737638" TEXT="2. Dodaj wydatek">
+<node CREATED="1672825745879" ID="ID_991802639" MODIFIED="1672825757462" TEXT="1. Z dnia dzisiejszego"/>
+<node CREATED="1672825758168" ID="ID_1731563988" MODIFIED="1672825765473" TEXT="2. Z innego dnia">
+<node CREATED="1672825765473" ID="ID_1921810789" MODIFIED="1672825771864" TEXT="Podaj date">
+<node CREATED="1672825771868" ID="ID_263119675" MODIFIED="1672825781702" TEXT="Sprawdz czy podana data jest poprawna">
+<node CREATED="1672825781702" ID="ID_204725542" MODIFIED="1672825807179" TEXT="Podaj czego dotyczy wydatek">
+<node CREATED="1672825807179" ID="ID_1952197977" MODIFIED="1672825819773" TEXT="Podaj wysokosc wydatku">
+<node CREATED="1672825819776" ID="ID_1311745154" MODIFIED="1672825837966" TEXT="Zamien przecinki na kropki"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1672825838901" ID="ID_1531079273" MODIFIED="1672825852798" TEXT="3. Bilans z bie&#x17c;&#x105;cego miesi&#x105;ca">
+<node CREATED="1672825852798" ID="ID_1502533322" MODIFIED="1672825929782" TEXT="Wyswietl przychody posegregowane od najstarszych">
+<node CREATED="1672825929782" ID="ID_1922670788" MODIFIED="1672825946079" TEXT="Wyswietl wydatki posegregowane od najstarszych">
+<node CREATED="1672825946079" ID="ID_370735560" MODIFIED="1672825971224" TEXT="Pokaz sume przychodow">
+<node CREATED="1672825971224" ID="ID_1938263449" MODIFIED="1672825992712" TEXT="Pokaz sume wydatkow">
+<node CREATED="1672825992715" ID="ID_1116411241" MODIFIED="1672826021246" TEXT="Pokaz roznice miedzy przychodami, a wydatkami"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1672826022574" ID="ID_684267240" MODIFIED="1672826061842" TEXT="4. Bilans z wybranego miesi&#x105;ca">
+<node CREATED="1672825852798" ID="ID_510459207" MODIFIED="1672825929782" TEXT="Wyswietl przychody posegregowane od najstarszych">
+<node CREATED="1672825929782" ID="ID_324844941" MODIFIED="1672825946079" TEXT="Wyswietl wydatki posegregowane od najstarszych">
+<node CREATED="1672825946079" ID="ID_7963064" MODIFIED="1672825971224" TEXT="Pokaz sume przychodow">
+<node CREATED="1672825971224" ID="ID_495393048" MODIFIED="1672825992712" TEXT="Pokaz sume wydatkow">
+<node CREATED="1672825992715" ID="ID_637075621" MODIFIED="1672826021246" TEXT="Pokaz roznice miedzy przychodami, a wydatkami"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1672826081333" ID="ID_816058835" MODIFIED="1672826137438" TEXT="5. Bilans z wybranego okresu">
+<node CREATED="1672826137438" ID="ID_1952402215" MODIFIED="1672826180998" TEXT="Podaj date poczatkowa, nastepnie koncowa">
+<node CREATED="1672825852798" ID="ID_1038690978" MODIFIED="1672825929782" TEXT="Wyswietl przychody posegregowane od najstarszych">
+<node CREATED="1672825929782" ID="ID_1610376869" MODIFIED="1672825946079" TEXT="Wyswietl wydatki posegregowane od najstarszych">
+<node CREATED="1672825946079" ID="ID_776271103" MODIFIED="1672825971224" TEXT="Pokaz sume przychodow">
+<node CREATED="1672825971224" ID="ID_1806296771" MODIFIED="1672825992712" TEXT="Pokaz sume wydatkow">
+<node CREATED="1672825992715" ID="ID_681137317" MODIFIED="1672826021246" TEXT="Pokaz roznice miedzy przychodami, a wydatkami"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1672826193981" ID="ID_336947036" MODIFIED="1672826205273" TEXT="6. Zmien haslo"/>
+<node CREATED="1672826205996" ID="ID_539458575" MODIFIED="1672826214237" TEXT="7. Wyloguj sie"/>
+</node>
+</node>
+</node>
+</node>
+</node>
+</node>
+<node CREATED="1672825107060" ID="ID_95573122" MODIFIED="1672825121517" TEXT="3. Zako&#x144;cz program"/>
+</node>
+</node>
+</map>

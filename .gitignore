@@ -1,0 +1,6 @@
+bin/
+obj/
+budzet_domowy.*
+Users.xml
+Incomes.xml
+Expenses.xml
