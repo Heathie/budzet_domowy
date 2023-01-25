@@ -193,7 +193,6 @@ char Helpers::chooseOptionFromDateMenu() {
     cout << "---------------------------" << endl;
     cout << "1. Dzis" << endl;
     cout << "2. Inny dzien" << endl;
-    cout << "6 - Powrot " << endl;
     cout << endl << "Twoj wybor: ";
     marker = Helpers::getChar();
 

@@ -5,6 +5,7 @@ int FileWithIncomes::getIdOfLastIncome() {
 }
 
 void FileWithIncomes::addIncomeToFile(Incomes income) {
+    idOfLastIncome = income.getIdOfIncome();
     CMarkup xml;
     bool fileExists = xml.Load("Incomes.xml");
     if(!fileExists) {

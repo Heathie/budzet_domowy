@@ -42,13 +42,13 @@ int main()
                 personalBudget.addIncome();
                 break;
             case '2':
-
+                personalBudget.addExpense();
                 break;
             case '3':
 
                 break;
             case '4':
-                //personalBudget.wyswietlWszystkichAdresatow();
+
                 break;
             case '5':
 
