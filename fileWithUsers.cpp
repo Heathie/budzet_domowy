@@ -2,8 +2,6 @@
 
 void FileWithUsers::writeUserToFile(User user) {
 
-    cout << "dodaje jednego" << endl;
-    system("pause");
     CMarkup xml;
     bool fileExists = xml.Load("Users.xml");
     if(!fileExists) {
@@ -24,8 +22,6 @@ void FileWithUsers::writeUserToFile(User user) {
 
 vector <User> FileWithUsers::loadAllUsersFromFile() {
 
-    cout << "laduje" << endl;
-    system("pause");
     vector <User> users;
     CMarkup xml;
     xml.Load("Users.xml");
@@ -62,7 +58,6 @@ vector <User> FileWithUsers::loadAllUsersFromFile() {
 
 void FileWithUsers::writeAllUsersIntoFile(vector <User> users) {
 
-    cout << "dodaje wszystkich" << endl;
     system("pause");
     CMarkup xml;
     xml.AddElem("Users");
