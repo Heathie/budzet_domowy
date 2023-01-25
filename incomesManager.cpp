@@ -1,6 +1,6 @@
 #include "IncomesManager.h"
 
-void IncomesManager::addIncome(){
+void IncomesManager::addIncome() {
 
     Incomes income;
 
@@ -14,15 +14,23 @@ void IncomesManager::addIncome(){
     system("pause");
 }
 
-Incomes IncomesManager::getNewIncomeData(){
-    char option = Helpers::chooseOptionFromDateMenu();
+Incomes IncomesManager::getNewIncomeData() {
+
     string incomeString;
     int date;
+    char option;
 
-    if (option == '1') {
+    do {
+        option = Helpers::chooseOptionFromDateMenu();
+    } while(option != '1' && option != '2');
+
+    switch (option) {
+    case '1':
         date = Helpers::getCurrentDate();
-    } else if (option == '2') {
+        break;
+    case '2':
         date = Helpers::getDate();
+        break;
     }
 
     Incomes income;
@@ -43,6 +51,6 @@ Incomes IncomesManager::getNewIncomeData(){
     return income;
 }
 
-void IncomesManager::printOutAllIncomes(){
+void IncomesManager::printOutAllIncomes() {
 
 }
