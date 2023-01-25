@@ -4,15 +4,10 @@ void PersonalBudget::registerUser(){
     userManager.registerUser();
 }
 
-void PersonalBudget::printOutAllUsers(){
-    userManager.printOutAllUsers();
-}
-
 void PersonalBudget::logInUser(){
     userManager.logInUser();
     if (userManager.isUserLoggedIn()){
-        //adresatMenadzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, userManager.fingLoggedinUserId());
-        userManager.findLoggedinUserId();
+        incomesManager = new IncomesManager(userManager.findLoggedinUserId());
     }
 }
 
@@ -22,26 +17,26 @@ void PersonalBudget::changePasswordOfLoggedInUser(){
 
 void PersonalBudget::logOutUser(){
     userManager.logOutUser();
-    //delete adresatMenadzer;
-    //adresatMenadzer = NULL;
+    delete incomesManager;
+    incomesManager = NULL;
 }
-/*
-void PersonalBudget::dodajAdresata(){
+
+void PersonalBudget::addIncome(){
     if (userManager.isUserLoggedIn()){
-        adresatMenadzer->dodajAdresata();
+        incomesManager->addIncome();
     }
     else{
-        cout << "Aby dodac adresata, nalezy najpierw sie zalogowac" << endl;
+        cout << "Aby dodac przychod, nalezy najpierw sie zalogowac" << endl;
         system("pause");
     }
 }
 
-void PersonalBudget::wyswietlWszystkichAdresatow(){
+void PersonalBudget::printOutAllIncomes(){
     if (userManager.isUserLoggedIn()){
-        adresatMenadzer->wyswietlWszystkichAdresatow();
+        incomesManager->printOutAllIncomes();
     }
 }
-*/
+
 bool PersonalBudget::isUserLoggedIn(){
     if(userManager.isUserLoggedIn()){
         return true;

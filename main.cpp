@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    PersonalBudget personalBudget("Users.xml");//, "Adresaci.txt");
+    PersonalBudget personalBudget("Users.xml");
 
     char marker;
 
@@ -39,7 +39,7 @@ int main()
             switch (marker)
             {
             case '1':
-                //personalBudget.dodajAdresata();
+                personalBudget.addIncome();
                 break;
             case '2':
 

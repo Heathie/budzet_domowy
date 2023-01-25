@@ -1,6 +1,6 @@
 #include "UserManager.h"
 
-void UserManager::registerUser(){
+void UserManager::registerUser() {
     User user = tapNewUserDataIn();
 
     users.push_back(user);
@@ -10,15 +10,13 @@ void UserManager::registerUser(){
     system("pause");
 }
 
-User UserManager::tapNewUserDataIn()
-{
+User UserManager::tapNewUserDataIn() {
     User user;
 
     user.setUserId(findNewUserId());
 
     string login;
-    do
-    {
+    do {
         cout << "Podaj login: ";
         cin >> login;
         cin.ignore();
@@ -46,20 +44,16 @@ User UserManager::tapNewUserDataIn()
     return user;
 }
 
-int UserManager::findNewUserId()
-{
+int UserManager::findNewUserId() {
     if (users.empty() == true)
         return 1;
     else
         return users.back().getUserId() + 1;
 }
 
-bool UserManager::doesLoginExist(string login)
-{
-    for (int i = 0; i < (int) users.size(); i++)
-    {
-        if (users[i].getLogin() == login)
-        {
+bool UserManager::doesLoginExist(string login) {
+    for (int i = 0; i < (int) users.size(); i++) {
+        if (users[i].getLogin() == login) {
             cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
             return true;
         }
@@ -67,19 +61,7 @@ bool UserManager::doesLoginExist(string login)
     return false;
 }
 
-void UserManager::printOutAllUsers(){
-    for (int i = 0; i < (int) users.size(); i++)
-    {
-        cout << users[i].getUserId() << endl;
-        cout << users[i].getLogin() << endl;
-        cout << users[i].getPassword() << endl;
-        cout << users[i].getName() << endl;
-        cout << users[i].getSurname() << endl;
-    }
-}
-
-void UserManager::logInUser()
-{
+void UserManager::logInUser() {
     User user;
     string login = "", password = "";
 
@@ -87,17 +69,13 @@ void UserManager::logInUser()
     login = Helpers::getLine();
 
     vector <User>::iterator itr = users.begin();
-    while (itr != users.end())
-    {
-        if (itr -> getLogin() == login)
-        {
-            for (int numberOfAttempts = 3; numberOfAttempts > 0; numberOfAttempts--)
-            {
+    while (itr != users.end()) {
+        if (itr -> getLogin() == login) {
+            for (int numberOfAttempts = 3; numberOfAttempts > 0; numberOfAttempts--) {
                 cout << "Podaj haslo. Pozostalo prob: " << numberOfAttempts << ": ";
                 password = Helpers::getLine();
 
-                if (itr -> getPassword() == password)
-                {
+                if (itr -> getPassword() == password) {
                     loggedinUserId = itr ->getUserId();
                     cout << endl << "Zalogowales sie." << endl << endl;
                     return;
@@ -114,18 +92,13 @@ void UserManager::logInUser()
     return;
 }
 
-void UserManager::changePasswordOfLoggedInUser()
-{
-    cout<<"bedziemy zmieniac haslo"<<endl;
-    system("pause");
+void UserManager::changePasswordOfLoggedInUser() {
     string newPassword = "";
     cout << "Podaj nowe haslo: ";
     newPassword = Helpers::getLine();
 
-    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
-    {
-        if (itr -> getUserId() == loggedinUserId)
-        {
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+        if (itr -> getUserId() == loggedinUserId) {
             itr -> setPassword(newPassword);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
@@ -134,15 +107,15 @@ void UserManager::changePasswordOfLoggedInUser()
     fileWithUsers.writeAllUsersIntoFile(users);
 }
 
-void UserManager::logOutUser(){
+void UserManager::logOutUser() {
     loggedinUserId = 0;
 }
 
-int UserManager::findLoggedinUserId(){
+int UserManager::findLoggedinUserId() {
     return loggedinUserId;
 }
 
-bool UserManager::isUserLoggedIn(){
+bool UserManager::isUserLoggedIn() {
     if (loggedinUserId > 0)
         return true;
     else
