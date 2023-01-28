@@ -30,6 +30,12 @@ public:
     static int getCurrentDate();
     static bool isLeapYear(int year);
     static bool isValidDate(int date);
+    static int getStartDate(int startDate);
+    static int getEndDate(int endDate);
+    static int getFirstDayOfThisMonth(int startDate);
+    static int getLastDayOfThisMonth(int endDate);
+    static int getFirstDayOfPreviousMonth(int startDate);
+    static int getLastDayOfPreviousMonth(int endDate);
 };
 
 #endif

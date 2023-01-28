@@ -30,7 +30,8 @@ public:
     };
     void addIncome();
     Incomes getNewIncomeData();
-    void printOutAllIncomes();
+    void printOutIncomes(int startDate, int endDate);
+    void printOutIncome(Incomes income);
 };
 
 #endif

@@ -32,3 +32,7 @@ string Incomes::getNameOfIncome(){
 string Incomes::getAmountOfIncome(){
     return amountOfIncome;
 }
+
+bool Incomes::sortDatesOfIncomes(Incomes one, Incomes two){
+    return one.getDateOfIncome() < two.getDateOfIncome();
+}

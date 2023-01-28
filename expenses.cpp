@@ -32,3 +32,7 @@ string Expenses::getNameOfExpense(){
 string Expenses::getAmountOfExpense(){
     return amountOfExpense;
 }
+
+bool Expenses::sortDatesOfExpenses(Expenses one, Expenses two){
+    return one.getDateOfExpense() < two.getDateOfExpense();
+}

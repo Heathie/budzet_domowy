@@ -56,7 +56,9 @@ vector <Incomes> FileWithIncomes::getIncomesOfLoggedUserFromFile(int loggedUserI
 
         xml.OutOfElem();
 
+        if(tempIncomes.getIdOfUserWhichIncomesBelongsTo() == loggedUserId){
         incomes.push_back(tempIncomes);
+        }
     }
 
     idOfLastIncome = lastIncomeId;

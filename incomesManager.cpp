@@ -51,6 +51,29 @@ Incomes IncomesManager::getNewIncomeData() {
     return income;
 }
 
-void IncomesManager::printOutAllIncomes() {
+void IncomesManager::printOutIncomes(int startDate, int endDate) {
+    system("cls");
+    bool noIncomes = true;
+        cout << "                  >>> PRZYCHODY <<<" << endl;
+        cout << "-------------------------------------------------------" << endl;
 
+        sort(incomes.begin(), incomes.end(), Incomes::sortDatesOfIncomes);
+
+        for (vector <Incomes> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
+            if (itr->getDateOfIncome() > startDate && itr->getDateOfIncome() < endDate) {
+                printOutIncome(*itr);
+                noIncomes = false;
+            }
+        }
+        if(noIncomes){
+            cout << "Brak przychodow w pliku" << endl;
+        }
+        cout << endl;
+
+}
+
+void IncomesManager::printOutIncome(Incomes income) {
+    cout << endl << "Data przychodu:                        " << Helpers::dateToString(income.getDateOfIncome()) << endl;
+    cout << "Nazwa przychodu:                        " << income.getNameOfIncome() << endl;
+    cout << "Wartosc przychodu w zlotowkach:               " << income.getAmountOfIncome() << endl;
 }

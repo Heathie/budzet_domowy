@@ -30,7 +30,8 @@ public:
     };
     void addExpense();
     Expenses getNewExpenseData();
-    void printOutAllExpenses();
+    void printOutExpenses(int startDate, int endDate);
+    void printOutExpense(Expenses expense);
 };
 
 #endif

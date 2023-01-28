@@ -56,7 +56,9 @@ vector <Expenses> FileWithExpenses::getExpensesOfLoggedUserFromFile(int loggedUs
 
         xml.OutOfElem();
 
+        if(tempExpenses.getIdOfUserWhichExpensesBelongsTo() == loggedUserId){
         expenses.push_back(tempExpenses);
+        }
     }
 
     idOfLastExpense = lastExpenseId;

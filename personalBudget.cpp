@@ -44,17 +44,36 @@ void PersonalBudget::addExpense(){
     }
 }
 
-void PersonalBudget::printOutAllIncomes(){
-    if (userManager.isUserLoggedIn()){
-        incomesManager->printOutAllIncomes();
-    }
-}
-
 bool PersonalBudget::isUserLoggedIn(){
     if(userManager.isUserLoggedIn()){
         return true;
     }
     else{
         return false;
+    }
+}
+
+void PersonalBudget::printOutBalanceSheet(string timePeriod){
+    int startDate = 0, endDate = 0;
+    system("cls");
+    if (userManager.isUserLoggedIn()){
+        if(timePeriod == "currentMonth"){
+            startDate = Helpers::getFirstDayOfThisMonth(startDate);
+            endDate = Helpers::getLastDayOfThisMonth(endDate);
+        }
+        else if(timePeriod == "previousMonth"){
+            startDate = Helpers::getFirstDayOfPreviousMonth(startDate);
+            endDate = Helpers::getLastDayOfPreviousMonth(endDate);
+        }
+        else{
+            startDate = Helpers::getStartDate(startDate);
+            endDate = Helpers::getEndDate(endDate);
+        }
+        incomesManager->printOutIncomes(startDate, endDate);
+        expensesManager->printOutExpenses(startDate, endDate);
+    }
+    else{
+        cout << "Aby wyswietlic bilans, nalezy najpierw sie zalogowac" << endl;
+        system("pause");
     }
 }

@@ -33,8 +33,8 @@ public:
     void logOutUser();
     bool isUserLoggedIn();
     void addIncome();
-    void printOutAllIncomes();
     void addExpense();
+    void printOutBalanceSheet(string timePeriod);
 
 };
 #endif

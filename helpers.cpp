@@ -108,9 +108,9 @@ int Helpers::getInteger() {
 
 bool Helpers::isLeapYear(int year) {
     return year % 4 == 0 && (
-        year % 100 != 0 ||
-        year % 400 == 0
-    );
+               year % 100 != 0 ||
+               year % 400 == 0
+           );
 }
 
 int Helpers::getCurrentDate() {
@@ -153,7 +153,7 @@ bool Helpers::isValidDate(int date) {
             )
         ) ||
         (
-            month % 2 == 1 &&
+            (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) &&
             day > 31
         ) ||
         day > 30
@@ -177,11 +177,11 @@ int Helpers::stringToDate(string s) {
 int Helpers::getDate() {
     string rawInput;
     int date = 0;
-    do{
-    cout << "Wprowadz date (YYYY-MM-DD): " << endl;
-    getline(cin, rawInput);
-    date = stringToDate(rawInput);
-    }while(!Helpers::isValidDate(date));
+    do {
+        cout << "Wprowadz date (YYYY-MM-DD): ";
+        getline(cin, rawInput);
+        date = stringToDate(rawInput);
+    } while(!Helpers::isValidDate(date));
 
     return date;
 }
@@ -216,4 +216,130 @@ string Helpers::dateToString(int date) {
     year = convertIntToString(date);
 
     return year + "-" + month + "-" + day;
+}
+
+int Helpers::getFirstDayOfThisMonth(int startDate) {
+    int date = getCurrentDate();
+    string stringDate = dateToString(date);
+    string stringMonth = stringDate.substr(5, 2);
+    string stringYear = stringDate.substr(0, 4);
+    stringDate = stringYear + "-" + stringMonth + "-01";
+    return startDate = stringToDate(stringDate);
+}
+int Helpers::getLastDayOfThisMonth(int endDate) {
+    int date = getCurrentDate();
+    string stringDate = dateToString(date);
+    string stringMonth = stringDate.substr(5, 2);
+    string stringYear = stringDate.substr(0, 4);
+    int month = convertStringToInt(stringMonth);
+    int year = convertStringToInt(stringYear);
+
+    switch(month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        stringDate = stringYear + "-" + stringMonth + "-31";
+        break;
+
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        stringDate = stringYear + "-" + stringMonth + "-30";
+        break;
+
+    case 2: {
+        if (((year%4 == 0) && (year%100 != 0)) || (year%400 == 0))
+            stringDate = stringYear + "-" + stringMonth + "-29";
+        else stringDate = stringYear + "-" + stringMonth + "-28";
+    }
+    }
+    return endDate = stringToDate(stringDate);
+}
+
+int Helpers::getFirstDayOfPreviousMonth(int startDate){
+    int month = 0;
+    int date = getCurrentDate();
+    string stringDate = dateToString(date);
+    string stringMonth = stringDate.substr(5, 2);
+    string stringYear = stringDate.substr(0, 4);
+    if (stringMonth[0] == '0' && stringMonth[1] != '1'){
+        stringMonth = stringMonth.erase(0, 1);
+        month = convertStringToInt(stringMonth);
+        month = month - 1;
+        stringMonth = month < 10 ? "0" + convertIntToString(month) : convertIntToString(month);
+    } else if(stringMonth[0] == '0' && stringMonth[1] == '1'){
+        month = 12;
+        stringMonth = month < 10 ? "0" + convertIntToString(month) : convertIntToString(month);
+    } else{
+        month = convertStringToInt(stringMonth);
+        month = month - 1;
+        stringMonth = convertIntToString(month);
+    }
+    stringDate = stringYear + "-" + stringMonth + "-01";
+    return startDate = stringToDate(stringDate);
+}
+
+int Helpers::getLastDayOfPreviousMonth(int endDate){
+    int month = 0;
+    int date = getCurrentDate();
+    string stringDate = dateToString(date);
+    string stringMonth = stringDate.substr(5, 2);
+    string stringYear = stringDate.substr(0, 4);
+    int year = convertStringToInt(stringYear);
+    if (stringMonth[0] == '0' && stringMonth[1] != '1'){
+        stringMonth = stringMonth.erase(0, 1);
+        month = convertStringToInt(stringMonth);
+        month = month - 1;
+        stringMonth = month < 10 ? "0" + convertIntToString(month) : convertIntToString(month);
+    } else if(stringMonth[0] == '0' && stringMonth[1] == '1'){
+        month = 12;
+        stringMonth = convertIntToString(month);
+    } else{
+        month = convertStringToInt(stringMonth);
+        month = month - 1;
+        stringMonth = convertIntToString(month);
+    }
+
+    switch(month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        stringDate = stringYear + "-" + stringMonth + "-31";
+        break;
+
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        stringDate = stringYear + "-" + stringMonth + "-30";
+        break;
+
+    case 2: {
+        if (((year%4 == 0) && (year%100 != 0)) || (year%400 == 0))
+            stringDate = stringYear + "-" + stringMonth + "-29";
+        else stringDate = stringYear + "-" + stringMonth + "-28";
+    }
+    }
+    return endDate = stringToDate(stringDate);
+}
+
+int Helpers::getStartDate(int startDate) {
+    cout << "Data poczatkowa." << " ";
+    startDate = Helpers::getDate();
+    return startDate;
+}
+
+int Helpers::getEndDate(int endDate) {
+    cout << "Data koncowa." << " ";
+    endDate = Helpers::getDate();
+    return endDate;
 }
