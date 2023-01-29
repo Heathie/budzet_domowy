@@ -45,13 +45,13 @@ int main()
                 personalBudget.addExpense();
                 break;
             case '3':
-
+                personalBudget.printOutBalanceSheet("currentMonth");
                 break;
             case '4':
-
+                personalBudget.printOutBalanceSheet("previousMonth");
                 break;
             case '5':
-
+                personalBudget.printOutBalanceSheet("other");
                 break;
             case '6':
                 personalBudget.changePasswordOfLoggedInUser();

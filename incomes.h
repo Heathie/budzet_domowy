@@ -23,6 +23,7 @@ public:
     int getDateOfIncome();
     string getNameOfIncome();
     string getAmountOfIncome();
+    static bool sortDatesOfIncomes(Incomes one, Incomes two);
 
 };
 

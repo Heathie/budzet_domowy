@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Expenses {
+class Expenses{
     int idOfExpense;
     int idOfUserWhichExpensesBelongsTo;
     int dateOfExpense;
@@ -23,6 +23,7 @@ public:
     int getDateOfExpense();
     string getNameOfExpense();
     string getAmountOfExpense();
+    static bool sortDatesOfExpenses(Expenses one, Expenses two);
 
 };
 

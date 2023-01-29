@@ -17,7 +17,7 @@ void FileWithExpenses::addExpenseToFile(Expenses expense) {
     xml.IntoElem();
     xml.AddElem("idOfExpense", expense.getIdOfExpense());
     xml.AddElem("idOfUserWhichExpensesBelongsTo", expense.getIdOfUserWhichExpensesBelongsTo());
-    xml.AddElem("dateOfExpense", Helpers::dateToString(expense.getDateOfExpense()));
+    xml.AddElem("dateOfExpense", Dates::dateToString(expense.getDateOfExpense()));
     xml.AddElem("nameOfExpense", expense.getNameOfExpense());
     xml.AddElem("amountOfExpense", expense.getAmountOfExpense());
 
@@ -46,7 +46,7 @@ vector <Expenses> FileWithExpenses::getExpensesOfLoggedUserFromFile(int loggedUs
         tempExpenses.setIdOfUserWhichExpensesBelongsTo(stoi(xml.GetData()));
 
         xml.FindElem();
-        tempExpenses.setDateOfExpense(Helpers::stringToDate(xml.GetData()));
+        tempExpenses.setDateOfExpense(Dates::stringToDate(xml.GetData()));
 
         xml.FindElem();
         tempExpenses.setNameOfExpense(xml.GetData());
@@ -56,7 +56,9 @@ vector <Expenses> FileWithExpenses::getExpensesOfLoggedUserFromFile(int loggedUs
 
         xml.OutOfElem();
 
+        if(tempExpenses.getIdOfUserWhichExpensesBelongsTo() == loggedUserId){
         expenses.push_back(tempExpenses);
+        }
     }
 
     idOfLastExpense = lastExpenseId;

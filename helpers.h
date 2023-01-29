@@ -2,12 +2,8 @@
 #define HELPERS_H
 
 #include <iostream>
-#include <ctime>
 #include <sstream>
 #include <algorithm>
-#include <cstring>
-#include <windows.h>
-
 
 using namespace std;
 
@@ -18,18 +14,12 @@ public:
     static string getLine();
     static string changeFirstLetterToUpperAndRestToLower(string text);
     static int convertStringToInt(string number);
+    static double convertStringToDouble(string number);
     static string getDigit(string text, int signPosition);
     static char chooseOptionFromMainMenu();
     static char chooseOptionFromUserMenu();
     static char getChar();
     static int getInteger();
-    static char chooseOptionFromDateMenu();
-    static int getDate();
-    static string dateToString(int date);
-    static int stringToDate(string sDate);
-    static int getCurrentDate();
-    static bool isLeapYear(int year);
-    static bool isValidDate(int date);
 };
 
 #endif

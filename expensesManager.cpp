@@ -21,15 +21,15 @@ Expenses ExpensesManager::getNewExpenseData() {
     char option;
 
     do {
-        option = Helpers::chooseOptionFromDateMenu();
+        option = Dates::chooseOptionFromDateMenu();
     } while(option != '1' && option != '2');
 
     switch (option) {
     case '1':
-        date = Helpers::getCurrentDate();
+        date = Dates::getCurrentDate();
         break;
     case '2':
-        date = Helpers::getDate();
+        date = Dates::getDate();
         break;
     }
 
@@ -51,6 +51,34 @@ Expenses ExpensesManager::getNewExpenseData() {
     return expense;
 }
 
-void ExpensesManager::printOutAllExpenses() {
+double ExpensesManager::printOutExpenses(int startDate, int endDate, double amountOfExpenses) {
+    bool noExpenses = true;
 
+        cout << "                      >>> WYDATKI <<<" << endl;
+        cout << "----------------------------------------------------------" << endl;
+
+        sort(expenses.begin(), expenses.end(), Expenses::sortDatesOfExpenses);
+
+        for (vector <Expenses> :: iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
+            if (itr->getDateOfExpense() > startDate && itr->getDateOfExpense() < endDate) {
+                printOutExpense(*itr);
+                noExpenses = false;
+                amountOfExpenses = amountOfExpenses + Helpers::convertStringToDouble(itr->getAmountOfExpense());
+            }
+        }
+        if(noExpenses){
+            cout << "Brak wydatkow w pliku" << endl;
+        }
+        cout << endl;
+        return amountOfExpenses;
+}
+
+void ExpensesManager::printOutExpense(Expenses expense) {
+    cout << endl << "Data wydatku:                                   " << Dates::dateToString(expense.getDateOfExpense()) << endl;
+    cout << "Nazwa wydatku:                                  " << expense.getNameOfExpense() << endl;
+    cout << "Wartosc wydatku w zlotowkach:                   " << expense.getAmountOfExpense() << endl;
+}
+
+void ExpensesManager::printOutAmountOfExpensesOfPeriod(double amountOfExpenses){
+    cout << "Suma wydatkow:                                  " << amountOfExpenses << "zl" << endl;
 }

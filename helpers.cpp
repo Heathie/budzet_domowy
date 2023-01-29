@@ -29,6 +29,11 @@ int Helpers::convertStringToInt(string number) {
     return numberInt;
 }
 
+double Helpers::convertStringToDouble(string number){
+    double numberDouble = stod(number);
+    return numberDouble;
+}
+
 string Helpers::getDigit(string text, int markerPosition) {
     string number = "";
     while(isdigit(text[markerPosition]) == true) {
@@ -49,7 +54,7 @@ char Helpers::chooseOptionFromMainMenu() {
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    option = Helpers::getChar();
+    option = getChar();
 
     return option;
 }
@@ -70,7 +75,7 @@ char Helpers::chooseOptionFromUserMenu() {
     cout << "7. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    option = Helpers::getChar();
+    option = getChar();
 
     return option;
 }
@@ -104,116 +109,4 @@ int Helpers::getInteger() {
         cout << "To nie jest liczba. Wpisz ponownie. " << endl;
     }
     return number;
-}
-
-bool Helpers::isLeapYear(int year) {
-    return year % 4 == 0 && (
-        year % 100 != 0 ||
-        year % 400 == 0
-    );
-}
-
-int Helpers::getCurrentDate() {
-    string currentDate;
-    int date = 0;
-    time_t t = time(0);;
-    tm* now = localtime(&t);
-    int month = now->tm_mon + 1;
-    int day = now->tm_mday;
-    currentDate =
-        convertIntToString(now->tm_year + 1900) +
-        (month < 10 ? "0" + convertIntToString(month) : convertIntToString(month)) +
-        (day < 10 ? "0" + convertIntToString(day) : convertIntToString(day));
-
-    date = stoi(currentDate);
-
-    return date;
-}
-
-bool Helpers::isValidDate(int date) {
-    int day = date % 100;
-    int month = (date / 100) % 100;
-    int year = date / 10000;
-
-    int currentDate = Helpers::getCurrentDate();
-    int currentMonth = (currentDate / 100) % 100;
-    int currentYear = currentDate / 10000;
-
-    if (
-        year < 2000 ||
-        year > currentYear ||
-        month < 1 ||
-        month > 12 ||
-        (year == currentYear && month > currentMonth) ||
-        day < 1 ||
-        (
-            month == 2 && (
-                (Helpers::isLeapYear(year) && day > 29) ||
-                day > 28
-            )
-        ) ||
-        (
-            month % 2 == 1 &&
-            day > 31
-        ) ||
-        day > 30
-    ) {
-        cout << "Nieprawidlowy format daty" << endl;
-        Sleep(1000);
-        return false;
-    }
-
-    return true;
-}
-
-int Helpers::stringToDate(string s) {
-    string year = s.substr(0, 4);
-    string month = s.substr(5, 2);
-    string day = s.substr(8,2);
-
-    return stoi(year + month + day);
-}
-
-int Helpers::getDate() {
-    string rawInput;
-    int date = 0;
-    do{
-    cout << "Wprowadz date (YYYY-MM-DD): " << endl;
-    getline(cin, rawInput);
-    date = stringToDate(rawInput);
-    }while(!Helpers::isValidDate(date));
-
-    return date;
-}
-
-char Helpers::chooseOptionFromDateMenu() {
-    char marker;
-
-    cout << endl << "   >>> WYBIERZ DZIEN, KTOREGO DOTYCZY TRANSAKCJA <<<" << endl;
-    cout << "---------------------------" << endl;
-    cout << "1. Dzis" << endl;
-    cout << "2. Inny dzien" << endl;
-    cout << endl << "Twoj wybor: ";
-    marker = Helpers::getChar();
-
-    return marker;
-}
-
-string Helpers::dateToString(int date) {
-    string year, month, day;
-
-    day = convertIntToString(date % 100);
-    if (date % 100 < 10) {
-        day = "0" + day;
-    }
-    date = date / 100;
-    month = convertIntToString(date % 100);
-    if (date % 100 < 10) {
-        month = "0" + month;
-    }
-    date = date / 100;
-
-    year = convertIntToString(date);
-
-    return year + "-" + month + "-" + day;
 }

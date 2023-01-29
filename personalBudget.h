@@ -6,6 +6,7 @@
 #include "UserManager.h"
 #include "IncomesManager.h"
 #include "ExpensesManager.h"
+#include "Dates.h"
 
 
 using namespace std;
@@ -33,8 +34,7 @@ public:
     void logOutUser();
     bool isUserLoggedIn();
     void addIncome();
-    void printOutAllIncomes();
     void addExpense();
-
+    void printOutBalanceSheet(string timePeriod);
 };
 #endif

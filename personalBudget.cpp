@@ -44,17 +44,44 @@ void PersonalBudget::addExpense(){
     }
 }
 
-void PersonalBudget::printOutAllIncomes(){
-    if (userManager.isUserLoggedIn()){
-        incomesManager->printOutAllIncomes();
-    }
-}
-
 bool PersonalBudget::isUserLoggedIn(){
     if(userManager.isUserLoggedIn()){
         return true;
     }
     else{
         return false;
+    }
+}
+
+void PersonalBudget::printOutBalanceSheet(string timePeriod){
+    int startDate = 0, endDate = 0;
+    double amountOfExpenses = 0, amountOfIncomes = 0, balanceSheet = 0;
+    system("cls");
+    if (userManager.isUserLoggedIn()){
+        if(timePeriod == "currentMonth"){
+            startDate = Dates::getFirstDayOfThisMonth(startDate);
+            endDate = Dates::getLastDayOfThisMonth(endDate);
+        }
+        else if(timePeriod == "previousMonth"){
+            startDate = Dates::getFirstDayOfPreviousMonth(startDate);
+            endDate = Dates::getLastDayOfPreviousMonth(endDate);
+        }
+        else{
+            startDate = Dates::getStartDate(startDate);
+            endDate = Dates::getEndDate(endDate);
+        }
+        system("cls");
+        cout << "Od " << Dates::dateToString(startDate) << " do " << Dates::dateToString(endDate) << endl;
+        amountOfIncomes = incomesManager->printOutIncomes(startDate, endDate, amountOfIncomes);
+        amountOfExpenses = expensesManager->printOutExpenses(startDate, endDate, amountOfExpenses);
+        incomesManager->printOutAmountOfIncomesOfPeriod(amountOfIncomes);
+        expensesManager->printOutAmountOfExpensesOfPeriod(amountOfExpenses);
+        balanceSheet = amountOfIncomes - amountOfExpenses;
+        cout << "Roznica miedzy przychodami, a wydatkami:        " << balanceSheet << "zl" << endl;
+        system("pause");
+    }
+    else{
+        cout << "Aby wyswietlic bilans, nalezy najpierw sie zalogowac" << endl;
+        system("pause");
     }
 }
