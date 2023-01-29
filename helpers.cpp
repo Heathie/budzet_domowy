@@ -29,6 +29,11 @@ int Helpers::convertStringToInt(string number) {
     return numberInt;
 }
 
+double Helpers::convertStringToDouble(string number){
+    double numberDouble = stod(number);
+    return numberDouble;
+}
+
 string Helpers::getDigit(string text, int markerPosition) {
     string number = "";
     while(isdigit(text[markerPosition]) == true) {

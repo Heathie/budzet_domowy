@@ -51,11 +51,10 @@ Incomes IncomesManager::getNewIncomeData() {
     return income;
 }
 
-void IncomesManager::printOutIncomes(int startDate, int endDate) {
-    system("cls");
+double IncomesManager::printOutIncomes(int startDate, int endDate, double amountOfIncomes) {
     bool noIncomes = true;
-        cout << "                  >>> PRZYCHODY <<<" << endl;
-        cout << "-------------------------------------------------------" << endl;
+        cout << "                     >>> PRZYCHODY <<<" << endl;
+        cout << "----------------------------------------------------------" << endl;
 
         sort(incomes.begin(), incomes.end(), Incomes::sortDatesOfIncomes);
 
@@ -63,17 +62,24 @@ void IncomesManager::printOutIncomes(int startDate, int endDate) {
             if (itr->getDateOfIncome() > startDate && itr->getDateOfIncome() < endDate) {
                 printOutIncome(*itr);
                 noIncomes = false;
+                amountOfIncomes = amountOfIncomes + Helpers::convertStringToDouble(itr->getAmountOfIncome());
             }
         }
         if(noIncomes){
             cout << "Brak przychodow w pliku" << endl;
         }
         cout << endl;
+        return amountOfIncomes;
 
 }
 
 void IncomesManager::printOutIncome(Incomes income) {
-    cout << endl << "Data przychodu:                        " << Helpers::dateToString(income.getDateOfIncome()) << endl;
-    cout << "Nazwa przychodu:                        " << income.getNameOfIncome() << endl;
-    cout << "Wartosc przychodu w zlotowkach:               " << income.getAmountOfIncome() << endl;
+    cout << endl << "Data przychodu:                                 " << Helpers::dateToString(income.getDateOfIncome()) << endl;
+    cout << "Nazwa przychodu:                                " << income.getNameOfIncome() << endl;
+    cout << "Wartosc przychodu w zlotowkach:                 " << income.getAmountOfIncome() << endl;
+}
+
+void IncomesManager::printOutAmountOfIncomesOfPeriod(double amountOfIncomes){
+    cout << "----------------------------------------------------------" << endl;
+    cout << "Suma przychodow:                                " << amountOfIncomes << "zl" << endl;
 }

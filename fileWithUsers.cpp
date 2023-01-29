@@ -63,7 +63,7 @@ void FileWithUsers::writeAllUsersIntoFile(vector <User> users) {
     xml.AddElem("Users");
     xml.IntoElem();
 
-    for (int i = 0; i < users.size(); i++) {
+    for (long long unsigned int i = 0; i < users.size(); i++) {
         xml.AddElem("User");
         xml.IntoElem();
         xml.AddElem("userId", users[i].getUserId());

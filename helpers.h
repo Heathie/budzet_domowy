@@ -18,6 +18,7 @@ public:
     static string getLine();
     static string changeFirstLetterToUpperAndRestToLower(string text);
     static int convertStringToInt(string number);
+    static double convertStringToDouble(string number);
     static string getDigit(string text, int signPosition);
     static char chooseOptionFromMainMenu();
     static char chooseOptionFromUserMenu();
