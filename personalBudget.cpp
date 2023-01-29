@@ -59,19 +59,19 @@ void PersonalBudget::printOutBalanceSheet(string timePeriod){
     system("cls");
     if (userManager.isUserLoggedIn()){
         if(timePeriod == "currentMonth"){
-            startDate = Helpers::getFirstDayOfThisMonth(startDate);
-            endDate = Helpers::getLastDayOfThisMonth(endDate);
+            startDate = Dates::getFirstDayOfThisMonth(startDate);
+            endDate = Dates::getLastDayOfThisMonth(endDate);
         }
         else if(timePeriod == "previousMonth"){
-            startDate = Helpers::getFirstDayOfPreviousMonth(startDate);
-            endDate = Helpers::getLastDayOfPreviousMonth(endDate);
+            startDate = Dates::getFirstDayOfPreviousMonth(startDate);
+            endDate = Dates::getLastDayOfPreviousMonth(endDate);
         }
         else{
-            startDate = Helpers::getStartDate(startDate);
-            endDate = Helpers::getEndDate(endDate);
+            startDate = Dates::getStartDate(startDate);
+            endDate = Dates::getEndDate(endDate);
         }
         system("cls");
-        cout << "Od " << Helpers::dateToString(startDate) << " do " << Helpers::dateToString(endDate) << endl;
+        cout << "Od " << Dates::dateToString(startDate) << " do " << Dates::dateToString(endDate) << endl;
         amountOfIncomes = incomesManager->printOutIncomes(startDate, endDate, amountOfIncomes);
         amountOfExpenses = expensesManager->printOutExpenses(startDate, endDate, amountOfExpenses);
         incomesManager->printOutAmountOfIncomesOfPeriod(amountOfIncomes);

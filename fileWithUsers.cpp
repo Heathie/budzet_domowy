@@ -58,7 +58,6 @@ vector <User> FileWithUsers::loadAllUsersFromFile() {
 
 void FileWithUsers::writeAllUsersIntoFile(vector <User> users) {
 
-    system("pause");
     CMarkup xml;
     xml.AddElem("Users");
     xml.IntoElem();

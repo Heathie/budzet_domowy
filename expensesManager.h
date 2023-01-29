@@ -1,22 +1,19 @@
 #ifndef EXPENSESMANAGER_H
 #define EXPENSESMANAGER_H
 
-#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <windows.h>
-#include <sstream>
-#include <cstring>
 
 #include "Expenses.h"
 #include "FileWithExpenses.h"
 #include "Helpers.h"
+#include "Dates.h"
 
 using namespace std;
 
 class ExpensesManager
 {
-    const int LOGGED_USER_ID; // gdzie to przeniesc?
+    const int LOGGED_USER_ID;
     vector <Expenses> expenses;
     FileWithExpenses fileWithExpenses;
 

@@ -17,7 +17,7 @@ void FileWithIncomes::addIncomeToFile(Incomes income) {
     xml.IntoElem();
     xml.AddElem("idOfIncome", income.getIdOfIncome());
     xml.AddElem("idOfUserWhichIncomesBelongsTo", income.getIdOfUserWhichIncomesBelongsTo());
-    xml.AddElem("dateOfIncome", Helpers::dateToString(income.getDateOfIncome()));
+    xml.AddElem("dateOfIncome", Dates::dateToString(income.getDateOfIncome()));
     xml.AddElem("nameOfIncome", income.getNameOfIncome());
     xml.AddElem("amountOfIncome", income.getAmountOfIncome());
 
@@ -46,7 +46,7 @@ vector <Incomes> FileWithIncomes::getIncomesOfLoggedUserFromFile(int loggedUserI
         tempIncomes.setIdOfUserWhichIncomesBelongsTo(stoi(xml.GetData()));
 
         xml.FindElem();
-        tempIncomes.setDateOfIncome(Helpers::stringToDate(xml.GetData()));
+        tempIncomes.setDateOfIncome(Dates::stringToDate(xml.GetData()));
 
         xml.FindElem();
         tempIncomes.setNameOfIncome(xml.GetData());

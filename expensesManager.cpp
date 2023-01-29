@@ -21,15 +21,15 @@ Expenses ExpensesManager::getNewExpenseData() {
     char option;
 
     do {
-        option = Helpers::chooseOptionFromDateMenu();
+        option = Dates::chooseOptionFromDateMenu();
     } while(option != '1' && option != '2');
 
     switch (option) {
     case '1':
-        date = Helpers::getCurrentDate();
+        date = Dates::getCurrentDate();
         break;
     case '2':
-        date = Helpers::getDate();
+        date = Dates::getDate();
         break;
     }
 
@@ -74,7 +74,7 @@ double ExpensesManager::printOutExpenses(int startDate, int endDate, double amou
 }
 
 void ExpensesManager::printOutExpense(Expenses expense) {
-    cout << endl << "Data wydatku:                                   " << Helpers::dateToString(expense.getDateOfExpense()) << endl;
+    cout << endl << "Data wydatku:                                   " << Dates::dateToString(expense.getDateOfExpense()) << endl;
     cout << "Nazwa wydatku:                                  " << expense.getNameOfExpense() << endl;
     cout << "Wartosc wydatku w zlotowkach:                   " << expense.getAmountOfExpense() << endl;
 }
