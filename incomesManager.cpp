@@ -59,7 +59,7 @@ double IncomesManager::printOutIncomes(int startDate, int endDate, double amount
         sort(incomes.begin(), incomes.end(), Incomes::sortDatesOfIncomes);
 
         for (vector <Incomes> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
-            if (itr->getDateOfIncome() > startDate && itr->getDateOfIncome() < endDate) {
+            if (itr->getDateOfIncome() >= startDate && itr->getDateOfIncome() <= endDate) {
                 printOutIncome(*itr);
                 noIncomes = false;
                 amountOfIncomes = amountOfIncomes + Helpers::convertStringToDouble(itr->getAmountOfIncome());

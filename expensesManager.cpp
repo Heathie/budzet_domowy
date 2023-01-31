@@ -60,10 +60,10 @@ double ExpensesManager::printOutExpenses(int startDate, int endDate, double amou
         sort(expenses.begin(), expenses.end(), Expenses::sortDatesOfExpenses);
 
         for (vector <Expenses> :: iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
-            if (itr->getDateOfExpense() > startDate && itr->getDateOfExpense() < endDate) {
+            if (itr->getDateOfExpense() >= startDate && itr->getDateOfExpense() <= endDate) {
                 printOutExpense(*itr);
                 noExpenses = false;
-                amountOfExpenses = amountOfExpenses + Helpers::convertStringToDouble(itr->getAmountOfExpense());
+                amountOfExpenses += Helpers::convertStringToDouble(itr->getAmountOfExpense());
             }
         }
         if(noExpenses){

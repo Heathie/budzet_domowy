@@ -43,7 +43,7 @@ bool Dates::isValidDate(int date) {
         (
             month == 2 && (
                 (isLeapYear(year) && day > 29) ||
-                day > 28
+                (!isLeapYear(year) && day > 28)
             )
         ) ||
         (
